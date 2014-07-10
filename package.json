@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-light",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A theme for JSONResume",
   "main": "index.js",
   "scripts": {
