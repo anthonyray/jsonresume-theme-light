@@ -1,0 +1,181 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>{{bio.firstName}} {{bio.lastName}}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="resume.css">
+        <!-- endbuild -->
+
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="container-fluid">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+      <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse">
+                <h2 class="nav navbar-nav navbar-left name">{{bio.firstName}} {{bio.lastName}}</h2>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#experience">Professional experience</a></li>
+                  <li><a href="#education">Education</a></li>
+                  <li><a href="#skills">Skills</a></li>
+                  <li><a href="#awards">Awards</a></li>
+                  <li><a href="#publications">Publications</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2 class="section-title">About me</h2>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-xs-2">
+              <a class="text-center" href="#">
+                <img class="media-object img-circle" src="profile.png">
+              </a>
+            </div>
+            <div class="col-xs-10">
+              <div class="media">
+                <div class="media-body">
+                  <p>
+                    {{bio.summary}}
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="container" id="experience">
+          <h2 class="section-title">Professional Experience</h2>
+            <ul class="cbp_tmtimeline">
+{{#work}}
+              <li>
+                  <time class="cbp_tmtime" datetime=""><span>{{duration}}</span> <span>{{startDate}}</span></time>
+                  <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                  <div class="cbp_tmlabel">
+                      <h2>{{position}}<span class="company"><a href="{{website}}">{{company}}</a></span></h2>
+                      <p>
+                      <i>{{summary}}</i>
+                        <ul>
+                        {{#highlights}}
+                          <li>{{.}}</li>
+                        {{/highlights}}
+                        </ul>
+                      </p>
+                  </div>
+              </li>
+{{/work}}
+            </ul>
+
+        </div>
+        <div class="container" id="education">
+          <h2 class="section-title">Education</h2>
+          <div class="container">
+            <ul class="cbp_tmtimeline">
+{{#education}}              
+              <li>
+                  <time class="cbp_tmtime" datetime="2013-04-10 18:30"><span>{{duration}}</span> <span>{{^endDate}} {{startDate}} {{/endDate}}{{#endDate}}{{startDate}}/{{endDate}}{{/endDate}}</span></time>
+                  <div class="cbp_tmicon cbp_tmicon-phone"></div>
+                  <div class="cbp_tmlabel">
+                      <h2>{{area}} <span class="company">{{institution}}</span></h2>
+                      <p>
+                        <b>{{studyType}}</b>
+                        <p>
+                          Relevant subjects :
+                        </p>
+                        <ul>
+                          {{#courses}}
+                            <li>{{.}}</li>
+                          {{/courses}}
+                        </ul>
+                      </p>
+                  </div>
+              </li>
+{{/education}}
+            </ul>
+          </div>
+        </div>
+        <br>
+        <div class="container" id="skills">
+          <h2 class="section-title">Skills</h2>
+          <div class="row">
+{{#skills}}
+            <div class="col-xs-12 col-md-6">
+
+              <h4> {{name}} </h4>
+                <h5><b>{{level}}</b></h5>
+                {{#keywords}}
+                <span class="badge greenbadge">{{.}}</span> 
+                {{/keywords}}
+            </div>
+            <br>
+{{/skills}}
+
+          </div>
+        </div>
+        <div class="container" id="awards">
+          <h2 class="section-title">Awards</h2>
+          <div class="container">
+{{#awards}}
+            <div class="media">
+              <div class="media-body">
+                <h4 class="media-heading"><span class="badge greybadge ">{{awarder}}</span> {{title}}</h4><p><i>{{date}} </i>
+                <p>
+                </p>
+              </div>
+            </div>
+{{/awards}}
+          </div>
+        </div>
+        <div class="container" id="publications">
+          <h2 class="section-title">Publications</h2>
+          <div class="container">
+{{#publications}}
+            <div class="media">
+              <div class="media-body">
+                <h4 class="media-heading"><span class="badge greybadge ">{{publisher}}</span> <a href="{{website}}">{{name}}</a></h4><p><i>{{releaseDate}} </i>
+                <p>
+                </p>
+              </div>
+            </div>
+{{/publications}}
+            
+          </div>
+
+          </div>
+        </div>
+<br>
+<br>
+<br>
+<br>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+</body>
+</html>
