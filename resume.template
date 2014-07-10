@@ -319,7 +319,7 @@
 
             <div class="col-xs-2">
               <a class="text-center" href="#">
-                <img class="media-object img-circle" src="profile.png">
+                <img class="media-object img-circle" src="{{bio.gravatar}}">
               </a>
             </div>
             <div class="col-xs-10">
