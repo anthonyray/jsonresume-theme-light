@@ -5,8 +5,6 @@ var Mustache = require('mustache');
 
 var datehelper = require('./datehelper');
 
-var resume = JSON.parse(fs.readFileSync("resume.json","utf8"));
-
 function render (resume) {
     
 	if(resume.bio && resume.bio.email && resume.bio.email.personal) {
@@ -45,4 +43,3 @@ function render (resume) {
 
 module.exports = { render: render };
 
-fs.writeFileSync('index.html',render(resume))
